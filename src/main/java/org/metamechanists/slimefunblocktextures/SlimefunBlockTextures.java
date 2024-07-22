@@ -18,7 +18,7 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
     public void onEnable() {
         instance = this;
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerClickListener(), this);
-        Packet
+
     }
 
     @Override
