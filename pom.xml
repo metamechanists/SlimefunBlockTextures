@@ -111,13 +111,14 @@
             <groupId>io.lumine</groupId>
             <artifactId>Mythic</artifactId>
             <version>5.6.2</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>LumineUtils</artifactId>
             <version>1.20-20240329.022505-32</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
