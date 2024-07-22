@@ -33,11 +33,11 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>org.metamechanists.sanecrafting.bstats</shadedPattern>
+                            <shadedPattern>org.metamechanists.slimefunblocktextures.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.metamechanists.displaymodellib</pattern>
-                            <shadedPattern>org.metamechanists.quaptics.displaymodellib</shadedPattern>
+                            <pattern>io.lumine</pattern>
+                            <shadedPattern>org.metamechanists.slimefunblocktextures.displaymodellib</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
