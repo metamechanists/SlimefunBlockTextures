@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.metamechanists.displaymodellib.models.components.ModelItem;
 
 
 public class PlayerClickListener implements Listener {
@@ -22,10 +23,16 @@ public class PlayerClickListener implements Listener {
         ItemStack stack = new ItemStack(Material.DIAMOND_BLOCK);
         stack.editMeta(meta -> meta.setCustomModelData(666));
 
-        PacketItemDisplay.create()
+        new ModelItem()
                 .item(stack)
                 .brightness(15)
-                .scale(new AbstractVector(1.001, 1.001, 1.001))
-                .build(new AbstractLocation(Position.of(location)));
+                .scale(1.001, 1.001, 1.001)
+                .build(location.clone().add(1.0005, 1.0005, 1.0005));
+
+//        PacketItemDisplay.create()
+//                .item(stack)
+//                .brightness(15)
+//                .scale(new AbstractVector(1.001, 1.001, 1.001))
+//                .build(new AbstractLocation(Position.of(location)));
     }
 }

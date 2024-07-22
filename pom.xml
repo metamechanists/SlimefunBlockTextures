@@ -35,6 +35,10 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>org.metamechanists.slimefunblocktextures.bstats</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>org.metamechanists.displaymodellib</pattern>
+                            <shadedPattern>org.metamechanists.slimefunblocktextures.displaymodellib</shadedPattern>
+                        </relocation>
                     </relocations>
                 </configuration>
                 <executions>
@@ -59,6 +63,11 @@
 
     <repositories>
         <repository>
+            <id>org.metamechanists</id>
+            <url>https://repo.metamechanists.org/releases/</url>
+        </repository>
+
+        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -80,6 +89,13 @@
             <artifactId>paper-api</artifactId>
             <version>1.20.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.metamechanists</groupId>
+            <artifactId>DisplayModelLib</artifactId>
+            <version>23</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
