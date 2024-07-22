@@ -53,7 +53,7 @@
         </plugins>
     </build>
 
-    <description>Utilities for MetaMechanists Plugins!</description>
+    <description>bruh</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,11 +68,6 @@
         </repository>
 
         <repository>
-            <id>org.metamechanists</id>
-            <url>https://repo.metamechanists.org/releases/</url>
-        </repository>
-
-        <repository>
             <id>papermc-repo</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
@@ -84,13 +79,6 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>org.metamechanists</groupId>
-            <artifactId>DisplayModelLib</artifactId>
-            <version>23</version>
-            <scope>compile</scope>
-        </dependency>
-
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
@@ -124,6 +112,12 @@
             <artifactId>Mythic</artifactId>
             <version>5.6.2</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.lumine</groupId>
+            <artifactId>LumineUtils</artifactId>
+            <version>1.20-20240329.022505-32</version>
         </dependency>
     </dependencies>
 </project>
