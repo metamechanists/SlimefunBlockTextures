@@ -20,6 +20,6 @@ public class PlayerClickListener implements Listener {
                 .item(new ItemStack(Material.DIAMOND_BLOCK))
                 .brightness(15)
                 .scale(1.001)
-                .build(location.toCenterLocation());
+                .build(location);
     }
 }
