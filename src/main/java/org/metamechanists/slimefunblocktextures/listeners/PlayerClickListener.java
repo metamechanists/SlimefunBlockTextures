@@ -1,10 +1,6 @@
 package org.metamechanists.slimefunblocktextures.listeners;
 
 import io.github.thebusybiscuit.slimefun4.api.events.SlimefunBlockPlaceEvent;
-import io.lumine.mythic.api.adapters.AbstractLocation;
-import io.lumine.mythic.api.adapters.AbstractVector;
-import io.lumine.mythic.api.volatilecode.virtual.PacketItemDisplay;
-import io.lumine.utils.serialize.Position;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

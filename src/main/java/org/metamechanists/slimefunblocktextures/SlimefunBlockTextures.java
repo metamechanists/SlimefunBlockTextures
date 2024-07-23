@@ -6,6 +6,7 @@ import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
+import org.metamechanists.slimefunblocktextures.config.BlockModels;
 import org.metamechanists.slimefunblocktextures.listeners.PlayerClickListener;
 
 
@@ -17,6 +18,7 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
     @Override
     public void onEnable() {
         instance = this;
+        BlockModels.init();
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerClickListener(), this);
     }
 
