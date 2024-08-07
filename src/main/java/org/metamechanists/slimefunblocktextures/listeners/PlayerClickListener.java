@@ -44,20 +44,20 @@ public class PlayerClickListener implements Listener {
         BlockStorage.addBlockInfo(location, "texture-item-display-entity", display.getUniqueId().toString());
     }
 
-//    @EventHandler
-//    public static void onSlimefunBlockRemove(@NotNull SlimefunBlockBreakEvent event) {
-//        String uuidString = BlockStorage.getLocationInfo(event.getBlockBroken().getLocation(), "texture-item-display-entity");
-//        UUID uuid;
-//        try {
-//            uuid = UUID.fromString(uuidString);
-//        } catch (IllegalArgumentException e) {
-//            SlimefunBlockTextures.getInstance().getLogger().severe("Error while removing block: " + e);
-//            return;
-//        }
-//
-//        Entity entity = Bukkit.getEntity(uuid);
-//        if (entity != null) {
-//            entity.remove();
-//        }
-//    }
+    @EventHandler
+    public static void onSlimefunBlockRemove(@NotNull SlimefunBlockBreakEvent event) {
+        String uuidString = BlockStorage.getLocationInfo(event.getBlockBroken().getLocation(), "texture-item-display-entity");
+        UUID uuid;
+        try {
+            uuid = UUID.fromString(uuidString);
+        } catch (IllegalArgumentException e) {
+            SlimefunBlockTextures.getInstance().getLogger().severe("Error while removing block: " + e);
+            return;
+        }
+
+        Entity entity = Bukkit.getEntity(uuid);
+        if (entity != null) {
+            entity.remove();
+        }
+    }
 }

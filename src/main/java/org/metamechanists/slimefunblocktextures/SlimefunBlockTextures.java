@@ -22,7 +22,7 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
         Util.init();
         BlockModels.init();
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerClickListener(), this);
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new RogueDisplayYeeter(), 0, 200);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new RogueDisplayYeeter(), 0, 100);
     }
 
     @Override
