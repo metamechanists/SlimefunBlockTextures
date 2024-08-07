@@ -6,7 +6,6 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.event.EventHandler;
@@ -22,26 +21,10 @@ import org.metamechanists.slimefunblocktextures.config.BlockModels;
 import java.util.UUID;
 
 
-public class PlayerClickListener implements Listener {
+public class BlockTextureListener implements Listener {
     @EventHandler
     public static void onSlimefunBlockPlace(@NotNull SlimefunBlockPlaceEvent event) {
-        Location location = event.getBlockPlaced().getLocation();
-        Integer blockModel = BlockModels.getBlockModel(event.getSlimefunItem().getId());
-        if (blockModel == null) {
-            return;
-        }
-
-        ItemStack stack = new ItemStack(Material.DIAMOND_BLOCK);
-        stack.editMeta(meta -> meta.setCustomModelData(blockModel));
-
-        ItemDisplay display = new ModelItem()
-                .item(stack)
-                .brightness(15)
-                .scale(1.001, 1.001, 1.001)
-                .build(location.clone().add(1.0005, 1.0005, 1.0005));
-        display.getPersistentDataContainer().set(Util.blockTextureKey, PersistentDataType.BOOLEAN, true);
-
-        BlockStorage.addBlockInfo(location, "texture-item-display-entity", display.getUniqueId().toString());
+        Util.createBlockTexture(event.getBlockPlaced().getLocation(), event.getSlimefunItem());
     }
 
     @EventHandler

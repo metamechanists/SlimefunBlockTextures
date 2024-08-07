@@ -23,7 +23,10 @@ public class BlockModels {
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(blockModels);
         for (String key : configuration.getKeys(false)) {
             try {
-                BlockModels.blockModels.put(key, configuration.getInt(key));
+                int modelData = configuration.getInt(key);
+                if (modelData != 0) {
+                    BlockModels.blockModels.put(key, modelData);
+                }
             } catch (RuntimeException e) {
                 SlimefunBlockTextures.getInstance().getLogger().severe("Error loading block model: " + e);
             }
@@ -31,8 +34,10 @@ public class BlockModels {
 
         // Fill in any missing IDs
         for (SlimefunItem item : Slimefun.getRegistry().getAllSlimefunItems()) {
-            configuration.set(item.getId(), 0);
-            BlockModels.blockModels.put(item.getId(), 0);
+            if (!configuration.contains(item.getId())) {
+                configuration.set(item.getId(), 0);
+                BlockModels.blockModels.put(item.getId(), 0);
+            }
         }
 
         try {
