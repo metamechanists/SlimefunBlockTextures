@@ -17,7 +17,7 @@ public class RogueDisplayYeeter implements Runnable {
                 }
 
                 // Check if block is empty instead of more expensive BlockStorageCheck
-                if (!display.getLocation().getBlock().isEmpty()) {
+                if (!display.getLocation().clone().subtract(1.0, 1.0, 1.0).getBlock().isEmpty()) {
                     continue;
                 }
 
