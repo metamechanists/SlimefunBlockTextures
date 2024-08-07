@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
 import org.metamechanists.slimefunblocktextures.config.BlockModels;
 import org.metamechanists.slimefunblocktextures.listeners.PlayerClickListener;
+import org.metamechanists.slimefunblocktextures.runnables.RogueDisplayYeeter;
 
 
 public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunAddon {
@@ -18,8 +19,10 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
     @Override
     public void onEnable() {
         instance = this;
+        Util.init();
         BlockModels.init();
         Bukkit.getServer().getPluginManager().registerEvents(new PlayerClickListener(), this);
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new RogueDisplayYeeter(), 0, 200);
     }
 
     @Override
