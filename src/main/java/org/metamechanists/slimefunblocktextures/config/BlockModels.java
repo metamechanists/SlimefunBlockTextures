@@ -18,7 +18,6 @@ public class BlockModels {
     private final Map<String, Integer> blockModels = new HashMap<>();
 
     public void init() {
-
         File blockModels = new File(SlimefunBlockTextures.getInstance().getJavaPlugin().getDataFolder(), "block-models.yml");
 
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(blockModels);
@@ -41,5 +40,9 @@ public class BlockModels {
         } catch (IOException e) {
             SlimefunBlockTextures.getInstance().getLogger().severe("Failed to save config file: " + e);
         }
+    }
+
+    public Integer getBlockModel(String id) {
+        return blockModels.get(id);
     }
 }

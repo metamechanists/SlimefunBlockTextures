@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.metamechanists.displaymodellib.models.components.ModelItem;
 import org.metamechanists.slimefunblocktextures.SlimefunBlockTextures;
+import org.metamechanists.slimefunblocktextures.config.BlockModels;
 
 import java.util.UUID;
 
@@ -23,9 +24,13 @@ public class PlayerClickListener implements Listener {
     @EventHandler
     public static void onSlimefunBlockPlace(@NotNull SlimefunBlockPlaceEvent event) {
         Location location = event.getBlockPlaced().getLocation();
+        Integer blockModel = BlockModels.getBlockModel(event.getSlimefunItem().getId());
+        if (blockModel == null) {
+            return;
+        }
 
         ItemStack stack = new ItemStack(Material.DIAMOND_BLOCK);
-        stack.editMeta(meta -> meta.setCustomModelData(666));
+        stack.editMeta(meta -> meta.setCustomModelData(blockModel));
 
         UUID uuid = new ModelItem()
                 .item(stack)
