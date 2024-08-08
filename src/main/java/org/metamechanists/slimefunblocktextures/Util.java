@@ -18,6 +18,7 @@ import org.metamechanists.slimefunblocktextures.config.BlockModels;
 public class Util {
     public NamespacedKey blockTextureKey;
     public final String BLOCKSTORAGE_KEY = "texture-item-display-entity";
+    private final int VIEW_RANGE = 32;
 
     public void init() {
         blockTextureKey = new NamespacedKey(SlimefunBlockTextures.getInstance(), "BLOCK_TEXTURE");
@@ -36,6 +37,7 @@ public class Util {
                 .item(stack)
                 .brightness(15)
                 .scale(1.001, 1.001, 1.001)
+                .viewRange(VIEW_RANGE)
                 .build(location.clone().add(1.0005, 1.0005, 1.0005));
 
         display.getPersistentDataContainer().set(blockTextureKey, PersistentDataType.STRING, slimefunItem.getId());
