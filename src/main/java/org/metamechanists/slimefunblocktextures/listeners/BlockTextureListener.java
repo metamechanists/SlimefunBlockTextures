@@ -30,6 +30,10 @@ public class BlockTextureListener implements Listener {
     @EventHandler
     public static void onSlimefunBlockRemove(@NotNull SlimefunBlockBreakEvent event) {
         String uuidString = BlockStorage.getLocationInfo(event.getBlockBroken().getLocation(), "texture-item-display-entity");
+        if (uuidString == null) {
+            return;
+        }
+
         UUID uuid;
         try {
             uuid = UUID.fromString(uuidString);
