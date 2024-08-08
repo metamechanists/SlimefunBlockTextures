@@ -25,7 +25,6 @@ public class NewDisplaySpawner implements Runnable {
                 }
 
                 if (BlockStorage.getLocationInfo(location, Util.BLOCKSTORAGE_KEY) != null) {
-                    BlockStorage.addBlockInfo(location, Util.BLOCKSTORAGE_KEY, null);
                     return;
                 }
 
