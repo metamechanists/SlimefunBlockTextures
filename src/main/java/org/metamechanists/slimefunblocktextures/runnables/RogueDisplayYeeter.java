@@ -2,7 +2,9 @@ package org.metamechanists.slimefunblocktextures.runnables;
 
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -21,10 +23,10 @@ public class RogueDisplayYeeter implements Runnable {
                     continue;
                 }
 
-                display.remove();
-
                 // Check if block is empty instead of more expensive BlockStorageCheck
-                if (display.getLocation().clone().subtract(1.0, 1.0, 1.0).getBlock().isEmpty()) {
+                Block block = display.getLocation().clone().subtract(1.0, 1.0, 1.0).getBlock();
+                if (block.isEmpty()) {
+                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
                     display.remove();
                     continue;
                 }
@@ -41,6 +43,7 @@ public class RogueDisplayYeeter implements Runnable {
                 }
 
                 if (BlockModels.getBlockModel(id) == null) {
+                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
                     display.remove();
                     continue;
                 }
