@@ -53,7 +53,6 @@ public class RogueDisplayYeeter implements Runnable {
                 }
 
                 if (!BlockStorage.getLocationInfo(block.getLocation(), Util.BLOCKSTORAGE_KEY).equals(display.getUniqueId().toString())) {
-                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
                     display.remove();
                 }
             }
