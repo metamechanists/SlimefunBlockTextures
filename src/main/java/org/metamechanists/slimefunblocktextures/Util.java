@@ -17,6 +17,7 @@ import org.metamechanists.slimefunblocktextures.config.BlockModels;
 @UtilityClass
 public class Util {
     public NamespacedKey blockTextureKey;
+    public final String BLOCKSTORAGE_KEY = "texture-item-display-entity";
 
     public void init() {
         blockTextureKey = new NamespacedKey(SlimefunBlockTextures.getInstance(), "BLOCK_TEXTURE");
@@ -39,6 +40,6 @@ public class Util {
 
         display.getPersistentDataContainer().set(blockTextureKey, PersistentDataType.STRING, slimefunItem.getId());
 
-        BlockStorage.addBlockInfo(location, "texture-item-display-entity", display.getUniqueId().toString());
+        BlockStorage.addBlockInfo(location, BLOCKSTORAGE_KEY, display.getUniqueId().toString());
     }
 }

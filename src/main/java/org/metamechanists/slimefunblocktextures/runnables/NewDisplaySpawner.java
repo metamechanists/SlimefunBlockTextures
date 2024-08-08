@@ -24,6 +24,10 @@ public class NewDisplaySpawner implements Runnable {
                     continue;
                 }
 
+                if (BlockStorage.getLocationInfo(location, Util.BLOCKSTORAGE_KEY) != null) {
+                    return;
+                }
+
                 Util.createBlockTexture(location, slimefunItem);
             }
         }

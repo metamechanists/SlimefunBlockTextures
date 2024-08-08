@@ -1,5 +1,6 @@
 package org.metamechanists.slimefunblocktextures.runnables;
 
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.ItemDisplay;
@@ -19,6 +20,8 @@ public class RogueDisplayYeeter implements Runnable {
                 if (id == null) {
                     continue;
                 }
+
+                display.remove();
 
                 // Check if block is empty instead of more expensive BlockStorageCheck
                 if (display.getLocation().clone().subtract(1.0, 1.0, 1.0).getBlock().isEmpty()) {
@@ -44,7 +47,6 @@ public class RogueDisplayYeeter implements Runnable {
 
                 if (BlockModels.getBlockModel(id) != meta.getCustomModelData()) {
                     stack.editMeta(newMeta -> newMeta.setCustomModelData(BlockModels.getBlockModel(id)));
-                    continue;
                 }
             }
         }
