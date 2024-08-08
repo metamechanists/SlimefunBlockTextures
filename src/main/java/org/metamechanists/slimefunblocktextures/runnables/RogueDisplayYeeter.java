@@ -25,32 +25,34 @@ public class RogueDisplayYeeter implements Runnable {
 
                 // Check if block is empty instead of more expensive BlockStorageCheck
                 Block block = display.getLocation().clone().subtract(1.0, 1.0, 1.0).getBlock();
-                if (block.isEmpty()) {
-                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
-                    display.remove();
-                    continue;
-                }
-
-                // Check if block model data is outdated
-                ItemStack stack = display.getItemStack();
-                if (stack == null) {
-                    continue;
-                }
-
-                ItemMeta meta = stack.getItemMeta();
-                if (meta == null) {
-                    continue;
-                }
-
-                if (BlockModels.getBlockModel(id) == null) {
-                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
-                    display.remove();
-                    continue;
-                }
-
-                if (BlockModels.getBlockModel(id) != meta.getCustomModelData()) {
-                    stack.editMeta(newMeta -> newMeta.setCustomModelData(BlockModels.getBlockModel(id)));
-                }
+                BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
+                display.remove();
+//                if (block.isEmpty()) {
+//                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
+//                    display.remove();
+//                    continue;
+//                }
+//
+//                // Check if block model data is outdated
+//                ItemStack stack = display.getItemStack();
+//                if (stack == null) {
+//                    continue;
+//                }
+//
+//                ItemMeta meta = stack.getItemMeta();
+//                if (meta == null) {
+//                    continue;
+//                }
+//
+//                if (BlockModels.getBlockModel(id) == null) {
+//                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
+//                    display.remove();
+//                    continue;
+//                }
+//
+//                if (BlockModels.getBlockModel(id) != meta.getCustomModelData()) {
+//                    stack.editMeta(newMeta -> newMeta.setCustomModelData(BlockModels.getBlockModel(id)));
+//                }
             }
         }
     }
