@@ -51,6 +51,11 @@ public class RogueDisplayYeeter implements Runnable {
                 if (BlockModels.getBlockModel(id) != meta.getCustomModelData()) {
                     stack.editMeta(newMeta -> newMeta.setCustomModelData(BlockModels.getBlockModel(id)));
                 }
+
+                if (!BlockStorage.getLocationInfo(block.getLocation(), Util.BLOCKSTORAGE_KEY).equals(display.getUniqueId().toString())) {
+                    BlockStorage.addBlockInfo(block, Util.BLOCKSTORAGE_KEY, null);
+                    display.remove();
+                }
             }
         }
     }
