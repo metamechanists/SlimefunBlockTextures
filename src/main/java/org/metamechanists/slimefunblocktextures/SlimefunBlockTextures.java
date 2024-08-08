@@ -1,5 +1,6 @@
 package org.metamechanists.slimefunblocktextures;
 
+import de.cubbossa.cliententities.PlayerSpace;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import lombok.NonNull;
@@ -22,9 +23,10 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
         instance = this;
         Util.init();
         BlockModels.init();
-        Bukkit.getServer().getPluginManager().registerEvents(new BlockTextureListener(), this);
-        Bukkit.getServer().getScheduler().runTaskTimer(this, new RogueDisplayYeeter(), 0, 100);
-        Bukkit.getServer().getScheduler().runTaskLater(this, new NewDisplaySpawner(), 0);
+//        Bukkit.getServer().getPluginManager().registerEvents(new BlockTextureListener(), this);
+//        Bukkit.getServer().getScheduler().runTaskTimer(this, new RogueDisplayYeeter(), 0, 100);
+//        Bukkit.getServer().getScheduler().runTaskLater(this, new NewDisplaySpawner(), 0);
+        PlayerSpace playerSpace = PlayerSpace.createGlobal(this).withInterval(200).build();
     }
 
     @Override
