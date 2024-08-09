@@ -95,11 +95,17 @@ public final class PlayerSpaces implements Listener {
     @EventHandler
     public static void onUnload(@NotNull ChunkUnloadEvent e) {
         ChunkPosition chunkPosition = new ChunkPosition(e.getChunk());
+        Map<BlockPosition, ClientEntity> chunkEntities = entities.remove(chunkPosition);
+        if (chunkEntities == null) {
+            return;
+        }
+
+        // TODO check if this is necessary lol
+        for (ClientEntity entity : chunkEntities.values()) {
+            entity.remove();
+        }
+
         try {
-            // TODO check if this is necessary lol
-            for (ClientEntity entity : entities.remove(chunkPosition).values()) {
-                entity.remove();
-            }
             spaces.remove(chunkPosition).close();
         } catch (IOException exception) {
             SlimefunBlockTextures.getInstance().getLogger().severe("Failed to close PlayerSpace: " + exception);
