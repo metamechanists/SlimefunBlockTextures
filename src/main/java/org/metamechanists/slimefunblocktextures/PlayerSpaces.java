@@ -26,6 +26,7 @@ import org.metamechanists.slimefunblocktextures.old.config.BlockModels;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 
 public final class PlayerSpaces implements Listener {
@@ -80,8 +81,9 @@ public final class PlayerSpaces implements Listener {
         // TODO decide ticking rate
         // TODO load for players in range
         ChunkPosition chunkPosition = new ChunkPosition(e.getChunk());
+        Set<BlockPosition> blocksInChunk = BlockStorageCache.getBlocksInChunk(chunkPosition);
 
-        for (BlockPosition blockPosition : BlockStorageCache.getBlocksInChunk(chunkPosition)) {
+        for (BlockPosition blockPosition : blocksInChunk) {
             Location location = new Location(chunkPosition.getWorld(), blockPosition.getX(), blockPosition.getY(), blockPosition.getZ());
             SlimefunItem slimefunItem = BlockStorage.check(location);
             if (slimefunItem == null) {
