@@ -76,9 +76,11 @@ public final class PlayerSpaces implements Listener {
             spaceFrom.removePlayer(e.getPlayer());
         }
 
-        PlayerSpace spaceTo = spaces.computeIfAbsent(chunkPositionTo, k -> PlayerSpace.create().build());
-        SlimefunBlockTextures.getInstance().getLogger().severe("Making entity visible");
-        spaceTo.addPlayerIfAbsent(e.getPlayer());
+        PlayerSpace spaceTo = spaces.get(chunkPositionTo);
+        if (spaceTo != null) {
+            SlimefunBlockTextures.getInstance().getLogger().severe("Making entity visible");
+            spaceTo.addPlayerIfAbsent(e.getPlayer());
+        }
     }
 
     @EventHandler
@@ -86,6 +88,7 @@ public final class PlayerSpaces implements Listener {
         // TODO decide ticking rate
         // TODO load for players in range
         ChunkPosition chunkPosition = new ChunkPosition(e.getChunk());
+        spaces.computeIfAbsent(chunkPosition, k -> PlayerSpace.create().build());
         Set<BlockPosition> blocksInChunk = BlockStorageCache.getBlocksInChunk(chunkPosition);
         if (blocksInChunk == null) {
             return;
