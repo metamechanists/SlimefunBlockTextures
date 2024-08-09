@@ -72,8 +72,15 @@ public final class PlayerSpaces implements Listener {
         }
 
         SlimefunBlockTextures.getInstance().getLogger().severe("Making entity visible");
-        spaces.get(chunkPositionFrom).removePlayer(e.getPlayer());
-        spaces.get(chunkPositionTo).addPlayerIfAbsent(e.getPlayer());
+        PlayerSpace spaceFrom = spaces.get(chunkPositionFrom);
+        if (spaceFrom != null) {
+            spaceFrom.removePlayer(e.getPlayer());
+        }
+
+        PlayerSpace spaceTo = spaces.get(chunkPositionTo);
+        if (spaceTo != null) {
+            spaceTo.removePlayer(e.getPlayer());
+        }
     }
 
     @EventHandler
