@@ -82,6 +82,9 @@ public final class PlayerSpaces implements Listener {
         // TODO load for players in range
         ChunkPosition chunkPosition = new ChunkPosition(e.getChunk());
         Set<BlockPosition> blocksInChunk = BlockStorageCache.getBlocksInChunk(chunkPosition);
+        if (blocksInChunk == null) {
+            return;
+        }
 
         for (BlockPosition blockPosition : blocksInChunk) {
             Location location = new Location(chunkPosition.getWorld(), blockPosition.getX(), blockPosition.getY(), blockPosition.getZ());
