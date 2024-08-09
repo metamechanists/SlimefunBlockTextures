@@ -34,6 +34,7 @@ public final class PlayerSpaces implements Listener {
     private static final Map<ChunkPosition, Map<BlockPosition, ClientEntity>> entities = new HashMap<>();
 
     private static void createDisplay(Location location, @NotNull SlimefunItem slimefunItem) {
+        SlimefunBlockTextures.getInstance().getLogger().severe("Spawning entity");
         ChunkPosition chunkPosition = new ChunkPosition(location);
         BlockPosition blockPosition = new BlockPosition(location);
         PlayerSpace space = spaces.computeIfAbsent(chunkPosition, k -> PlayerSpace.create().build());
@@ -69,6 +70,7 @@ public final class PlayerSpaces implements Listener {
             return;
         }
 
+        SlimefunBlockTextures.getInstance().getLogger().severe("Making entity visible");
         spaces.get(chunkPositionFrom).removePlayer(e.getPlayer());
         spaces.get(chunkPositionTo).addPlayerIfAbsent(e.getPlayer());
     }
