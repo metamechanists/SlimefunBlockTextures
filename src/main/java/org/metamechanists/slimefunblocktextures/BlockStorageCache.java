@@ -44,6 +44,7 @@ public final class BlockStorageCache implements Listener {
     public static void onBlockPlace(@NotNull SlimefunBlockPlaceEvent e) {
         ChunkPosition chunkPosition = new ChunkPosition(e.getBlockPlaced().getLocation());
         BlockPosition blockPosition = new BlockPosition(e.getBlockPlaced().getLocation());
+        slimefunBlockLocations.computeIfAbsent(chunkPosition, k -> new HashSet<>());
         slimefunBlockLocations.get(chunkPosition).add(blockPosition);
     }
 
@@ -51,6 +52,9 @@ public final class BlockStorageCache implements Listener {
     public static void onBlockBreak(@NotNull SlimefunBlockBreakEvent e) {
         ChunkPosition chunkPosition = new ChunkPosition(e.getBlockBroken().getLocation());
         BlockPosition blockPosition = new BlockPosition(e.getBlockBroken().getLocation());
-        slimefunBlockLocations.get(chunkPosition).remove(blockPosition);
+        Set<BlockPosition> blockPositions = slimefunBlockLocations.get(chunkPosition);
+        if (blockPositions != null) {
+            blockPositions.remove(blockPosition);
+        }
     }
 }
