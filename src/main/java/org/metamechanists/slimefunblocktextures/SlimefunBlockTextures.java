@@ -1,20 +1,17 @@
 package org.metamechanists.slimefunblocktextures;
 
-import de.cubbossa.cliententities.PlayerSpace;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
-import org.metamechanists.slimefunblocktextures.config.BlockModels;
-import org.metamechanists.slimefunblocktextures.listeners.BlockTextureListener;
-import org.metamechanists.slimefunblocktextures.runnables.NewDisplaySpawner;
-import org.metamechanists.slimefunblocktextures.runnables.RogueDisplayYeeter;
+import org.metamechanists.slimefunblocktextures.old.Util;
+import org.metamechanists.slimefunblocktextures.old.config.BlockModels;
+import org.metamechanists.slimefunblocktextures.old.runnables.RogueDisplayYeeter;
 
 
 public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunAddon {
-
     @Getter
     private static SlimefunBlockTextures instance;
 
@@ -23,6 +20,8 @@ public final class SlimefunBlockTextures extends JavaPlugin implements SlimefunA
         instance = this;
         Util.init();
         BlockModels.init();
+        BlockStorageCache.init();
+        Bukkit.getServer().getPluginManager().registerEvents(new BlockStorageCache(), this);
         Bukkit.getServer().getScheduler().runTaskTimer(this, new RogueDisplayYeeter(), 0, 100);
     }
 

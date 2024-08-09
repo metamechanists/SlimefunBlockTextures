@@ -1,4 +1,4 @@
-package org.metamechanists.slimefunblocktextures;
+package org.metamechanists.slimefunblocktextures.old;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.experimental.UtilityClass;
@@ -11,7 +11,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.metamechanists.displaymodellib.models.components.ModelItem;
-import org.metamechanists.slimefunblocktextures.config.BlockModels;
+import org.metamechanists.slimefunblocktextures.SlimefunBlockTextures;
+import org.metamechanists.slimefunblocktextures.old.config.BlockModels;
 
 
 @UtilityClass

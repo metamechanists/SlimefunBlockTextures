@@ -1,4 +1,4 @@
-package org.metamechanists.slimefunblocktextures.config;
+package org.metamechanists.slimefunblocktextures.old.config;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
